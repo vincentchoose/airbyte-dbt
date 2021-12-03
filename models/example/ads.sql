@@ -9,16 +9,11 @@
 
 {{ config(materialized='table') }}
 
-with source_data as (
-
-    select 1 as id
-    union all
-    select null as id
-
-)
-
-select *
-from source_data
+select
+    "_airbyte_data" ->> 'OS' as os,
+    ("_airbyte_data" ->> 'ATC')::integer as add_to_cart
+from airbyte."_airbyte_raw_data___all_canaux__a_exporter_"
+limit 10
 
 /*
     Uncomment the line below to remove records with null `id` values
