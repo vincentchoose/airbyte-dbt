@@ -7,7 +7,7 @@
     Try changing "table" to "view" below
 */
 
-{{ config(materialized='table', schema='market') }}
+{{ config(materialized='table') }}
 
 select
     ("_airbyte_data" ->> 'Semaine')::text as week,
@@ -30,4 +30,4 @@ select
     ("_airbyte_data" ->> 'Estimated Uniq ATC')::integer as estimated_unique_add_to_cart,
     ("_airbyte_data" ->> 'Estimated Uniq Purchase')::integer as estimated_unique_purchases,
     replace("_airbyte_data" ->> 'Cost', ',', '.')::numeric as cost
-from airbyte."_airbyte_raw_data___all_canaux__a_exporter_"
+from market."_airbyte_raw_data___all_canaux__a_exporter_"
