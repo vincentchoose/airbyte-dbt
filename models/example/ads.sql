@@ -7,7 +7,7 @@
     Try changing "table" to "view" below
 */
 
-{{ config(materialized='table') }}
+{{ config(materialized='table', schema='market') }}
 
 select
     ("_airbyte_data" ->> 'Semaine')::text as week,
