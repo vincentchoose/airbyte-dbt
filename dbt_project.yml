@@ -41,3 +41,7 @@ models:
     hubspot:
       +schema: hubspot
       +materialized: view
+      
+     airtable:
+      +schema: airtable
+      +materialized: view
