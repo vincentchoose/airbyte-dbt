@@ -37,3 +37,7 @@ models:
     app:
       +schema: app 
       +materialized: view
+    
+    hubspot:
+      +schema: hubspot
+      +materialized: view
