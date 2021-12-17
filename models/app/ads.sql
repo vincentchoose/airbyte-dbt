@@ -1,10 +1,11 @@
 {{ config(materialized='view') }}
 
 select
+("_airbyte_data" ->> 'Media source')::text as media_source,
     ("_airbyte_data" ->> 'Semaine')::text as week,
     ("_airbyte_data" ->> 'Premier Jour Semaine')::text as week_first_day,
     ("_airbyte_data" ->> 'Période')::text as "period",
-    ("_airbyte_data" ->> 'Media source')::text as media_source,
+    
     ("_airbyte_data" ->> 'Ad set')::text as adset,
     ("_airbyte_data" ->> 'Campagne')::text as campaign,
     ("_airbyte_data" ->> 'Type de campagne')::text as campaign_type,
